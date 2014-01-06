@@ -51,6 +51,7 @@ select, input {
 	
 	<table width="100%">
 		<form method="POST">
+			<tr><td>Reflink:</td><td><input type="text" name="reflink"></td></tr>
 			<tr><td>Server:</td><td>
 				<select name="realm">
 					<option value="na">North America</option>
@@ -86,7 +87,8 @@ if(isset($_POST['username'])){
 		
 		l('try #'.$tries);
 		
-		$f = curl_get('https://signup.leagueoflegends.com/en/signup/index');
+		// $f = curl_get('https://signup.leagueoflegends.com/en/signup/index');
+		$f = curl_get($_POST['reflink']);
 		preg_match('#name\=\"data\[\_Token\]\[key\]\" value\=\"(.*)\"#siU', $f, $token_key);
 		preg_match('#name\=\"data\[\_Token\]\[fields\]\" value\=\"(.*)\"#siU', $f, $token_fields);
 		preg_match('#\<img src\=\"\/en\/signup\/captcha\/(.*)\" id\=\"CaptchaImg\"#siU', $f, $captcha);
@@ -118,7 +120,8 @@ if(isset($_POST['username'])){
 						'X-Requested-With' => 'XMLHttpRequest'
 						);
 					
-					if($f = curl_post('https://signup.leagueoflegends.com/en/signup/index', $post, $xhr)){
+					// if($f = curl_post('https://signup.leagueoflegends.com/en/signup/index', $post, $xhr)){
+					if($f = curl_post($_POST['reflink'], $post, $xhr)){
 						$success = 0;
 						
 						foreach(explode("\n", $f) as $e){
