@@ -51,7 +51,7 @@ select, input {
 	
 	<table width="100%">
 		<form method="POST">
-			<tr><td>Reflink:</td><td><input type="text" name="reflink"></td></tr>
+			<tr><td>Reflink Code:</td><td><input type="text" name="reflink"></td></tr>
 			<tr><td>Server:</td><td>
 				<select name="realm">
 					<option value="na">North America</option>
@@ -75,9 +75,11 @@ if(isset($_POST['username'])){
 	
 	l('creating account (username: '.$_POST['username'].', password: '.$_POST['password'].')...');
 	
-	$reflink = $_POST['reflink'];
-	if(empty($reflink)) {
+	$reflink_code = $_POST['reflink'];
+	if(empty($reflink_code)) {
 		$reflink = 'http://signup.leagueoflegends.com/en/signup/index';
+	} else {
+		$reflink = 'https://signup.leagueoflegends.com/en/signup/index?ref=' . $reflink_code
 	}
 
 	l($reflink);
