@@ -80,7 +80,7 @@ if(isset($_POST['username'])){
 	
 	l('creating account (username: '.$_POST['username'].', password: '.$_POST['password'].')...');
 	
-	$reflink = l($_POST['reflink']);
+	$reflink = $_POST['reflink'];
 	if(empty($reflink)) {
 		$reflink = 'http://signup.leagueoflegends.com/';
 	}
