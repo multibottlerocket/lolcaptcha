@@ -55,11 +55,6 @@ select, input {
 			<tr><td>Server:</td><td>
 				<select name="realm">
 					<option value="na">North America</option>
-					<option value="euw">EU West</option>
-					<option value="eune">EU Nordic & East</option>
-					<option value="br">Brasil</option>
-					<option value="tr">Turkey</option>
-					<option value="ru">Russia</option>
 			</td></tr>
 			<tr><td>Username:</td><td><input type="text" name="username" value="<?=$uname?>"> 4-24 chars (only letters and numbers)</td></tr>
 			<tr><td>Password:</td><td><input type="password" name="password" value="<?=$pwd?>"> 6-16 chars, at least 1 letter and 1 number</td></tr>
@@ -82,7 +77,7 @@ if(isset($_POST['username'])){
 	
 	$reflink = $_POST['reflink'];
 	if(empty($reflink)) {
-		$reflink = 'http://signup.leagueoflegends.com/';
+		$reflink = 'http://signup.leagueoflegends.com/en/signup/index';
 	}
 
 	l($reflink);
