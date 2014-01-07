@@ -80,7 +80,12 @@ if(isset($_POST['username'])){
 	
 	l('creating account (username: '.$_POST['username'].', password: '.$_POST['password'].')...');
 	
-	l($_POST['reflink']);
+	$reflink = l($_POST['reflink']);
+	if(empty($reflink)) {
+		$reflink = 'http://signup.leagueoflegends.com/';
+	}
+
+	l($reflink);
 	$tries = 0;
 	
 	while($tries < 10){
@@ -89,7 +94,7 @@ if(isset($_POST['username'])){
 		l('try #'.$tries);
 		
 		// $f = curl_get('https://signup.leagueoflegends.com/en/signup/index');
-		$f = curl_get($_POST['reflink']);
+		$f = curl_get($reflink);
 		preg_match('#name\=\"data\[\_Token\]\[key\]\" value\=\"(.*)\"#siU', $f, $token_key);
 		preg_match('#name\=\"data\[\_Token\]\[fields\]\" value\=\"(.*)\"#siU', $f, $token_fields);
 		preg_match('#\<img src\=\"\/en\/signup\/captcha\/(.*)\" id\=\"CaptchaImg\"#siU', $f, $captcha);
@@ -122,7 +127,7 @@ if(isset($_POST['username'])){
 						);
 					
 					// if($f = curl_post('https://signup.leagueoflegends.com/en/signup/index', $post, $xhr)){
-					if($f = curl_post($_POST['reflink'], $post, $xhr)){
+					if($f = curl_post($reflink, $post, $xhr)){
 						$success = 0;
 						
 						foreach(explode("\n", $f) as $e){
