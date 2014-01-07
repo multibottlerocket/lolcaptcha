@@ -79,7 +79,7 @@ if(isset($_POST['username'])){
 	if(empty($reflink_code)) {
 		$reflink = 'http://signup.leagueoflegends.com/en/signup/index';
 	} else {
-		$reflink = 'https://signup.leagueoflegends.com/en/signup/index?ref=' . $reflink_code
+		$reflink = 'https://signup.leagueoflegends.com/en/signup/index?ref=' . $reflink_code;
 	}
 
 	l($reflink);
