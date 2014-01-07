@@ -80,6 +80,7 @@ if(isset($_POST['username'])){
 	
 	l('creating account (username: '.$_POST['username'].', password: '.$_POST['password'].')...');
 	
+	l($_POST['reflink']);
 	$tries = 0;
 	
 	while($tries < 10){
