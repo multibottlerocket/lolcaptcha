@@ -101,6 +101,7 @@ if(isset($_POST['username'])){
 			//l($img);
 			l(gettype($img));
 			l(base64_encode($img));
+			l('captcha: <img src="data:image/png;base64,'.base64_encode(png2str($img)));
 			if($img = imagecreatefromstring(file_get_contents($img))){
 				l('displaying decoded image');
 				l($img);
