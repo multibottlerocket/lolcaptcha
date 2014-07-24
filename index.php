@@ -101,7 +101,7 @@ if(isset($_POST['username'])){
 			//l($img);
 			l(gettype($img));
 			l(base64_encode($img));
-			if($img = imagecreatefromstring($img)){
+			if($img = imagecreatefromstring(file_get_contents($img))){
 				l('displaying decoded image');
 				l($img);
 				if($hax = hax_captcha($img)){
