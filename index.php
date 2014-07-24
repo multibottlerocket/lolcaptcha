@@ -100,7 +100,7 @@ if(isset($_POST['username'])){
 			//l('http://signup.leagueoflegends.com/en/signup/captcha/'.$captcha[1]);
 			//l($img);
 			if($img = @imagecreatefromstring($img)){
-				l('displaying decoded image')
+				l('displaying decoded image');
 				l($img);
 				if($hax = hax_captcha($img)){
 					l('captcha: <img src="data:image/png;base64,'.base64_encode(png2str($img)).'" style="border: 1px solid red;"> = '.$hax);
