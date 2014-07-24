@@ -100,7 +100,7 @@ if(isset($_POST['username'])){
 			//l('http://signup.leagueoflegends.com/en/signup/captcha/'.$captcha[1]);
 			//l($img);
 			l(gettype($img));
-			if($img = @imagecreatefromstring($img)){
+			if($img = imagecreatefromstring($img)){
 				l('displaying decoded image');
 				l($img);
 				if($hax = hax_captcha($img)){
