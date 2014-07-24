@@ -99,6 +99,7 @@ if(isset($_POST['username'])){
 		if($img = curl_get('http://signup.leagueoflegends.com/en/signup/captcha/'.$captcha[1])){
 			//l('http://signup.leagueoflegends.com/en/signup/captcha/'.$captcha[1]);
 			//l($img);
+			l(gettype($img));
 			if($img = @imagecreatefromstring($img)){
 				l('displaying decoded image');
 				l($img);
