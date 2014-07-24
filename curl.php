@@ -7,7 +7,7 @@ function curl_get($url){
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_COOKIEJAR => getcwd().'/cookiefile.tmp',
 		CURLOPT_COOKIEFILE => getcwd().'/cookiefile.tmp',
-		//CURLOPT_FOLLOWLOCATION => true,
+		CURLOPT_FOLLOWLOCATION => true,
 		CURLOPT_SSL_VERIFYPEER => false,
 		CURLOPT_SSL_VERIFYHOST => 2,
 		CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.64 Safari/537.31'
